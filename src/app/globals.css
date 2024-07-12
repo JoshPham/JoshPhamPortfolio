@@ -31,3 +31,29 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translate(0, 50%);
+  }
+  2% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+
+.fade-in-out{
+  animation: fade-in-out 2.5s;
+}
