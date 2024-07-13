@@ -8,7 +8,7 @@ export default function Layout({children}: {children: React.ReactNode}) {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full h-16 border-b-2 border-gray-700 bg-black">
-        <ul className="flex justify-end items-center w-full h-full px-2">
+        <ul className="flex justify-end items-center w-full h-full xxs:px-2 xs:px-20 md:px-40">
           <li>
               <a href={learnLink} className="z-50 text-xl bg-emerald-500 hover:bg-emerald-400 px-4 py-2 font-bold rounded-full drop-shadow-2xl hover:drop-shadow-3xl hover:scale-105 inline-block transition-all duration-150 ease-in">
                 Learn

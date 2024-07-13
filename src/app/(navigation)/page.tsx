@@ -1,26 +1,27 @@
 'use client';
 
-import React, { useState } from 'react';
-
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
-
 import clipboard from '../../images/clipboard.png';
-import checkmark from '@/images/checkmark.png';
-
-import styles from './mainpage.module.css';
 
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const copyToClipboard = async (e: React.MouseEvent<HTMLButtonElement | HTMLParagraphElement>) => {
     const target = e.target as HTMLButtonElement | HTMLParagraphElement;
     const email = "JTPham911@gmail.com";
     try {
+      setCopiedEmail(false)
       await navigator.clipboard.writeText(email);
-
+      
       setCopiedEmail(true);
 
-      setTimeout(() => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = setTimeout(() => {
         setCopiedEmail(false);
       }, 2500);
     } catch (err) {
